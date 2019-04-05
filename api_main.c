@@ -20,6 +20,16 @@ void get_message_id(uint8_t id)
 	i = id;
 }
 
+//API pseudo code for configuring the message
+void place_fifo(uint8_t message_id)
+{
+	
+If( (AF_IDMASKx & AF_IDVALUEx) == (AF_IDMASKx & message.id) )
+{
+Mailbox_put(message);
+}
+
+}
 
 // this function parses the command and takes action 
 void 	parse_cmd(uint8_t *rx_buffer)
@@ -32,16 +42,7 @@ void 	parse_cmd(uint8_t *rx_buffer)
 	
 }
 
-//API pseudo code for configuring the message
-void place_fifo(uint8_t message_id)
-{
-	
-If( (AF_IDMASKx & AF_IDVALUEx) == (AF_IDMASKx & message.id) )
-{
-Mailbox_put(message);
-}
 
-}
 
 
 //configures the gpio pin and sets it to 
